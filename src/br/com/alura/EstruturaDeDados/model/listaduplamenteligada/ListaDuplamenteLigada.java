@@ -1,31 +1,37 @@
-package br.com.alura.EstruturaDeDados.model.listaLigada;
+package br.com.alura.EstruturaDeDados.model.listaduplamenteligada;
 
-public class ListaLigada {
+public class ListaDuplamenteLigada {
     
     private Celula primeira = null;
     private int totalDeElementos = 0;
     private Celula ultima = null;
     public void adicionaNoComeço(Object elemento){
-        Celula nova = new Celula(elemento,primeira);
-        this.primeira = nova;
 
-        if(totalDeElementos == 0 ){
-            this.ultima = this.primeira;
+        if(this.totalDeElementos==0) {
+            Celula nova = new Celula(elemento);
+            this.primeira = nova;
+            this.ultima = nova;
+        }else{
+            Celula nova = new Celula(elemento,this.primeira);
+            this.primeira.setAnterior(nova);
+            this.primeira = nova;
         }
-        
         this.totalDeElementos++;
-
     }
     public void adiciona(Object elemento){
         if(this.totalDeElementos==0){
             adicionaNoComeço(elemento);
         }
         else {
-            Celula nova = new Celula(elemento, null);
+            Celula nova = new Celula(elemento);
             this.ultima.setProxima(nova);
+            nova.setAnterior(this.ultima);
             this.ultima = nova;
             this.totalDeElementos++;
         }
+
+
+
     }
 
     private boolean posicaoValida(int posicao){
@@ -58,9 +64,13 @@ public class ListaLigada {
             adiciona(elemento);
         }
         else{
-            Celula anterior = this.pegaCelula(posicao -1);
+            Celula posicaoCelula = this.pegaCelula(posicao);
+            Celula anterior = posicaoCelula.getAnterior();
             Celula nova = new Celula(elemento,anterior.getProxima());
+
             anterior.setProxima(nova);
+            nova.setAnterior(anterior);
+            posicaoCelula.setAnterior(nova);
             this.totalDeElementos++;
         }
     }
@@ -71,15 +81,27 @@ public class ListaLigada {
     }
 
     public void remove(int posicao){
+
+        if(posicao==0){
+            removerDoComeco();
+        }
+        else if(posicao == this.totalDeElementos-1){
+            removeDoFim();
+        }
+        else{
+
         Celula anterior = pegaCelula(posicao-1);
         Celula atual = pegaCelula(posicao);
+        Celula proxima = atual.getProxima();
         anterior.setProxima(atual.getProxima());
+        proxima.setAnterior(anterior);
         atual.setProxima(null);
+        atual.setAnterior(null);
         this.totalDeElementos--;
-        if(this.totalDeElementos==0){
-            this.ultima=null;
+        if(this.totalDeElementos==0) {
+            this.ultima = null;
         }
-
+        }
     }
 
     public void  removerDoComeco(){
@@ -92,6 +114,19 @@ public class ListaLigada {
         if(this.totalDeElementos==0){
             this.ultima=null;
         }
+    }
+
+    public void removeDoFim(){
+        if(this.totalDeElementos==1){
+            this.removerDoComeco();
+        }else{
+            Celula penultima = this.ultima.getAnterior();
+            penultima.setProxima(null);
+            this.ultima= penultima;
+            this.totalDeElementos--;
+
+        }
+
     }
 
     public int tamanho(){

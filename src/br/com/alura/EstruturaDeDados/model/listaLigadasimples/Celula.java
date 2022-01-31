@@ -1,4 +1,4 @@
-package br.com.alura.EstruturaDeDados.model.listaLigada;
+package br.com.alura.EstruturaDeDados.model.listaLigadasimples;
 
 public class Celula {
 
