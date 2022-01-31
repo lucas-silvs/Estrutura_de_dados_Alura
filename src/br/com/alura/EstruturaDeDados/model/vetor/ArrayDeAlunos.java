@@ -1,7 +1,5 @@
 package br.com.alura.EstruturaDeDados.model.vetor;
 
-import br.com.alura.EstruturaDeDados.model.Aluno;
-
 import java.util.Arrays;
 
 public class ArrayDeAlunos {

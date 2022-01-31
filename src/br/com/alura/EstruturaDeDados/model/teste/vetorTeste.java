@@ -1,6 +1,6 @@
 package br.com.alura.EstruturaDeDados.model.teste;
 
-import br.com.alura.EstruturaDeDados.model.Aluno;
+import br.com.alura.EstruturaDeDados.model.vetor.Aluno;
 import br.com.alura.EstruturaDeDados.model.vetor.ArrayDeAlunos;
 
 public class vetorTeste {
@@ -20,7 +20,7 @@ public class vetorTeste {
         alunos.adiciona(aluno3,0);
         System.out.println(alunos);
 
-        alunos.remove(aluno1);
+        alunos.remove(aluno3);
         System.out.println(alunos);
         for(int i = 0; i<20;i++){
             alunos.adiciona(aluno1);

@@ -1,4 +1,4 @@
-package br.com.alura.EstruturaDeDados.model;
+package br.com.alura.EstruturaDeDados.model.vetor;
 
 public class Aluno {
 
