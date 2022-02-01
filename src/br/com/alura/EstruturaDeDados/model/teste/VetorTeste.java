@@ -3,7 +3,7 @@ package br.com.alura.EstruturaDeDados.model.teste;
 import br.com.alura.EstruturaDeDados.model.vetor.Aluno;
 import br.com.alura.EstruturaDeDados.model.vetor.ArrayDeAlunos;
 
-public class vetorTeste {
+public class VetorTeste {
 
     public static void main(String[] args) {
         Aluno aluno1 = new Aluno("joão");

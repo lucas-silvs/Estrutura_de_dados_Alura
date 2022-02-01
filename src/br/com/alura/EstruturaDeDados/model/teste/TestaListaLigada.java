@@ -1,12 +1,11 @@
 package br.com.alura.EstruturaDeDados.model.teste;
 
 import br.com.alura.EstruturaDeDados.model.listaLigadasimples.ListaLigada;
-import br.com.alura.EstruturaDeDados.model.listaduplamenteligada.ListaDuplamenteLigada;
 
-public class testaListaDuplamenteLigada {
+public class TestaListaLigada {
 
     public static void main(String[] args) {
-        ListaDuplamenteLigada listaLigada = new ListaDuplamenteLigada();
+        ListaLigada listaLigada = new ListaLigada();
 
 
         listaLigada.adicionaNoComeço("1");
@@ -25,20 +24,13 @@ public class testaListaDuplamenteLigada {
         listaLigada.remove(5);
         System.out.println(listaLigada);
 
-
+        listaLigada.adiciona(5,'7');
+        System.out.println(listaLigada);
 
         System.out.println(listaLigada.contem("2"));
         System.out.println(listaLigada.contem("9"));
 
         listaLigada.removerDoComeco();
         System.out.println(listaLigada);
-
-        listaLigada.removeDoFim();
-        System.out.println(listaLigada);
-
-        listaLigada.remove(1);
-        System.out.println(listaLigada);
-
-
     }
 }
